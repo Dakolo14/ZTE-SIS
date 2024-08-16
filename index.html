@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        *,
+        *::before,
+        *::after {
+                box-sizing: border-box;
+                padding: 0;
+                margin: 0;
+            }
+
+        html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, menu, nav, output, section, summary, time, mark, audio, video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        }
+
+        body {
+            font-family: "Roboto", sans-serif;
+            background-color: #f2f2f2;
+            max-width: 1400px;
+            margin-inline: auto;
+        }
+
+        section{
+            padding: 0 !important;
+            margin:0 !important;
+            min-height: 0 !important;
+        }
+
+        .mySlides {
+            margin-top: 5px;
+            width: 100%;
+        }
+
+        .container {
+            display: grid;
+            width: 100%;
+            grid-template-columns: repeat(5, 1fr);
+            grid-column-gap: 0.5%;
+            grid-row-gap:1%;
+            padding: 0px;
+            line-height: 0%;
+        }
+
+        .category {
+            display: grid;
+            width: 100%;
+            grid-template-columns: repeat(3, 1fr);
+            grid-column-gap: 0.5%;
+            grid-row-gap:1%;
+            padding: 0px;
+            line-height: 0%;
+        }
+
+        .marquee-container {
+            overflow: hidden;
+            width: 100%;
+            position: relative;
+        }
+
+        marquee {
+            width: 98%;
+            height: 100%;
+        }
+
+        .marquee img {
+            height: 100%;
+            margin-right: 10px; /* Adjust the spacing as needed */
+        }
+
+        .box img {
+            max-width: 100%;
+            padding: 20px 10px 10px;
+            height: auto;
+            width: 100%; /* Set width for large image */
+        }
+
+        .mobile {
+            display: none;
+        }
+
+        .video-container {
+            display: flex;
+            margin-inline: auto;
+            width: 90%;
+            height: 90%;
+            margin: 20px auto;
+            cursor: pointer; /* Change cursor to pointer when hovering over the video */
+        }
+
+        .flyer {
+            background-color: #595757;
+            background-image: url("https://www-konga-com-res.cloudinary.com/image/upload/f_auto,q_auto/v1717412207/landingPages/Konga%20Mid%20Year%20Festival%2001_06_2024/background-img.png");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: #fff;
+            padding: 12px 24px;
+            font-weight: bolder;
+            margin-top: 10px;
+    }
+
+        .flyer p {
+            font-size: 28px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .bento-grid {
+            margin: 3rem 1rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem; /* Adjust gap between images as needed */
+        }
+
+        .left-side, .right-side {
+            display: grid;
+            grid-template-rows: repeat(2, 1fr);
+            gap: 2rem; /* Adjust gap between images as needed */
+        }
+
+        .left-side img, .right-side img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .middle-side img {
+            width: 100%;
+            height: auto;
+            object-fit: cover; /* Ensures the image covers the entire height */
+        }
+
+        /* Media query for mobile screens */
+        @media (max-width: 768px) {
+            .container {
+                display: grid;
+                width: 100%;
+                grid-template-columns: repeat(3, 1fr);
+                padding: 0px;
+                line-height: 0%;
+            }
+
+            .box {
+                width: 100%;
+            }
+
+            .bento-grid {
+                grid-template-columns: 1fr; /* Single column layout on small screens */
+            }
+
+            .left-side, .right-side {
+                grid-template-rows: 1fr; /* Single row per image on small screens */
+            }
+
+            .middle-side img {
+                height: auto; /* Allow the image to resize naturally */
+            }
+            
+            .laptop {
+                display: none;
+            }
+
+            marquee {
+                width: 100%;
+                height: 100%;
+            }
+
+            .marquee img {
+                height: 100px !important;
+                margin-right: 10px; /* Adjust the spacing as needed */
+            }
+
+            .video-container {
+                display: flex;
+                margin-inline: auto;
+                width: 100%;
+                height: 100%;
+                margin: 5px auto;
+                padding: 10px;
+                cursor: pointer; /* Change cursor to pointer when hovering over the video */
+            }
+
+            .mobile {
+                display: block;
+            }
+
+            .flyer {
+                padding: 10px 16px;
+                text-align: center;
+            }
+    
+            .flyer p {
+                font-size: 18px;
+                font-weight: 600;
+            }
+        }
+
+
+    </style>
+  </head>
+
+  <body>
+    <div class="mySlides laptop">
+      <img
+        src="main-banner.png"
+        style="width: 100%"
+      />
+    </div>
+
+    <div class="mySlides mobile">
+      <img
+        src="main-banner.png"
+        style="width: 100%"
+      />
+    </div>
+
+    <div class="flyer">
+        <p>Shop by Brands</p>
+    </div>
+
+    <div class="container">
+        <div class="box">
+            <a href="https://www.konga.com/search?search=CeraveBodyMoisturizers">
+                <img src="Brand 1.png" alt="Body Moisturizers">
+            </a>
+        </div>
+        <div class="box">
+            <a href="https://www.konga.com/search?search=CeraveFaceCleansers">
+                <img src="Brand 2.png" alt="Facial Cleansers">
+            </a>
+        </div>
+        <div class="box">
+            <a href="https://www.konga.com/search?search=CeraveFaceMoisturizers">
+                <img src="Brand 3.png" alt="Facial Moisturizers">
+            </a>
+        </div>
+        <div class="box">
+            <a href="https://www.konga.com/search?search=CeraveSkinRenew">
+                <img src="Brand 4.png" alt="Body Cleansers">
+            </a>
+        </div>
+        <div class="box">
+            <a href="https://www.konga.com/search?search=CeraveSkinRenew">
+                <img src="Brand 5.png" alt="Body Cleansers">
+            </a>
+        </div>
+    </div>
+
+
+    <div class="video-container" onclick="playVideo()">
+        <video width="100%" controls autoplay loop muted poster="video-poster.png" style="border-radius: 20px;">
+          <source src="a35.mp4" type="video/mp4">
+          Your browser does not support HTML5 video.
+        </video>
+    </div>
+
+
+    <div class="bento-grid">
+        <div class="left-side">
+            <img src="left-side1.png" alt="">
+            <img src="left-side2.png" alt="">
+        </div>
+        <div class="middle-side">
+            <img src="middle-img.png" alt="">
+        </div>
+        <div class="right-side">
+            <img src="right-side1.png" alt="">
+            <img src="right-side2.png" alt="">
+        </div>
+    </div>
+
+
+    <div class="marquee-container">
+        <marquee direction="left" scrollamount="20" class="marquee">
+            <img src="marquee-5.png" alt="Body Cleansers" style="height: 100%;">
+            <img src="marquee-1.png" alt="Body Cleansers" style="height: 100%;">
+            <img src="marquee-3.png" alt="Body Cleansers" style="height: 100%;">
+            <img src="marquee-4.png" alt="Body Cleansers" style="height: 100%;">
+            <img src="marquee-2.png" alt="Body Cleansers" style="height: 100%;">
+        </marquee>
+    </div>
+    
+
+
+    <div class="flyer">
+        <p>Best Sellers</p>
+    </div>
+  </body>
+</html>
+
+
+<div class="flyer" style="margin-top: 15px;">
+    <p>Watch More</p>
+</div>
+
+<div class="category">
+    <div class="box">
+        <a href="https://www.konga.com/search?search=CeraveBodyMoisturizers">
+            <img src="tube1.png" alt="Body Moisturizers">
+        </a>
+    </div>
+    <div class="box">
+        <a href="https://www.konga.com/search?search=CeraveFaceCleansers">
+            <img src="tube2.png" alt="Facial Cleansers">
+        </a>
+    </div>
+    <div class="box">
+        <a href="https://www.konga.com/search?search=CeraveFaceMoisturizers">
+            <img src="tube3.png" alt="Facial Moisturizers">
+        </a>
+    </div>
+</div>
+
+<script>
+    function playVideo() {
+      var video = document.querySelector('.video-container video');
+      video.play();
+    }
+</script>
